@@ -1,0 +1,41 @@
+{
+  "name": "IPRO12 Surgard Receiver",
+  "slug": "ipro12_surgard_receiver",
+  "version": "2.1.0",
+  "description": "Advanced receiver for SurGard / Contact ID events from IPRO-12 via TCP, with MQTT Discovery, Webhook, REST API dashboard and SQLite archive, STEMAX format support, RU/EN descriptions",
+  "startup": "services",
+  "boot": "auto",
+  "ports": {
+    "6601/tcp": 6601,
+    "8124/tcp": 8124
+  },
+  "schema": {
+    "use_mqtt": "bool",
+    "mqtt_host": "str",
+    "mqtt_port": "int",
+    "mqtt_user": "str",
+    "mqtt_pass": "str",
+    "mqtt_base_topic": "str",
+    "discovery_prefix": "str",
+    "webhook_enabled": "bool",
+    "webhook_url": "str",
+    "archive_enabled": "bool",
+    "supervision_timeout": "int",
+    "lang": "str"
+  },
+  "options": {
+    "use_mqtt": true,
+    "mqtt_host": "core-mosquitto",
+    "mqtt_port": 1883,
+    "mqtt_user": "homeassistant",
+    "mqtt_pass": "password",
+    "mqtt_base_topic": "ipro12",
+    "discovery_prefix": "homeassistant",
+    "webhook_enabled": false,
+    "webhook_url": "",
+    "archive_enabled": true,
+    "supervision_timeout": 300,
+    "lang": "ru"
+  },
+  "image": "local/ipro12_surgard_receiver"
+}
